@@ -72,7 +72,7 @@ module.exports = {
 
         User.findOneAndUpdate(  
             { _id: req.params.userId },
-            { $push:{
+            { $addToSet:{
                 friends:req.params.friendId
             }},{
                 new:true
@@ -83,7 +83,7 @@ module.exports = {
       }
   },
 
-  async deleteFriend(req,res){
+  async removeFriend(req,res){
     try{
 
         User.findOneAndUpdate(  
