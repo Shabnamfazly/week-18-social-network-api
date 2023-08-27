@@ -68,7 +68,11 @@ module.exports = {
   },
 
   async createFriend(req,res){
+    console.log("test")
     try{
+ 
+
+
 
         User.findOneAndUpdate(  
             { _id: req.params.userId },
@@ -77,7 +81,9 @@ module.exports = {
             }},{
                 new:true
             })
-
+            
+              return res.status(200).json({ message: 'Friend added!' });
+            
     } catch (err) {
         res.status(500).json(err);
       }
@@ -93,9 +99,11 @@ module.exports = {
             }},{
                 new:true
             })
+            return res.status(200).json({ message: 'Friend removed!' });
 
     } catch (err) {
         res.status(500).json(err);
       }
   }
 };
+
