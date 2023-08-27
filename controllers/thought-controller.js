@@ -69,6 +69,7 @@ const thoughtController = {
 
 
   async removeThought(req, res) {
+    
     try {
       const thought = await Thought.findOneAndDelete({
         _id: req.params.thoughtId,
@@ -112,17 +113,17 @@ const thoughtController = {
     try {
       const reaction = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $pull: { reactions: { _id: req.params.reactionId } } },
+        { $pull: { reactions: { reactionId: req.params.reactionId } } },
         { runValidators: true, new: true }
       );
-
+console.log(reaction)
       if (!reaction) {
         return res
           .status(404)
           .json({ message: "Check thought and reaction ID" });
       }
 
-      return res.status(200).json(reaction);
+      return res.status(200).json({msg:`Reaction removed `});
     } catch (err) {
       console.log(err);
       return res.status(500).json(err);
