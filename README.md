@@ -12,5 +12,5 @@ Run the following command from your CLI to start the application: npm start
 
 Below is the link to the walkthrough video:
 
-https://drive.google.com/file/d/1Gyoe18Y-9b63rOd_FAHIAQPPamnBjyTN/view  
+https://drive.google.com/file/d/1Gyoe18Y-9b63rOd_FAHIAQPPamnBjyTN/view 
 
